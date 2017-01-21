@@ -11,7 +11,7 @@
 			$this->RegisterPropertyString("region", "4");
 			$this->RegisterPropertyString("area", "789");
 			$this->RegisterPropertyString("ort", "916");
-			$this->RegisterPropertyString("strasse", "Zum Pfiff");
+			$this->RegisterPropertyString("strasse", "4411");
 		}		
 	
 		public function ApplyChanges()
