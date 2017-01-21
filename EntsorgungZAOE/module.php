@@ -8,7 +8,7 @@
 			//Never delete this line!
 			parent::Create();
 			
-			$this->RegisterPropertyString("region", "Weißeritzkreis");
+			$this->RegisterPropertyString("region", "4");
 			$this->RegisterPropertyString("area", "Wilsdruff");
 			$this->RegisterPropertyString("ort", "OT Grumbach");
 			$this->RegisterPropertyString("strasse", "Zum Pfiff");
