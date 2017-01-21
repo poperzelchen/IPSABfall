@@ -44,13 +44,26 @@
 		{ "label": "Wilsdruff", "value": "916" }
 	  ]
 	},
-	{ "name": "timeframe", "type": "Select", "caption": "Zeitraum",
+	{ "name": "strasse", "type": "Select", "caption": "Straße",
 	  "options": [
-		{ "label": "Heute", "value": "today" },
-		{ "label": "Morgen", "value": "tomorrow" }
+		{ "label": "Albin-Kaiser-Str.", "value": "38840" },
+		{ "label": "Alte Landstraße", "value": "5832" },
+		{ "label": "Am Gewerbepark", "value": "4142" },
+		{ "label": "Am Kalkofen", "value": "3915" },
+		{ "label": "Am oberen Bach", "value": "3916" },
+		{ "label": "Am unteren Bach", "value": "3917" },
+		{ "label": "Am Wehr", "value": "3918" },
+		{ "label": "Ader Mühle", "value": "3919" },
+		{ "label": "Artur-Kühne-Str.", "value": "3920" },
+		{ "label": "August-Bebel-Str.", "value": "3913" },
+		{ "label": "Bahnhofsring", "value": "3921" },
+		{ "label": "Bahnhofsweg", "value": "5833" },
+		{ "label": "Begersweg", "value": "3922" },
+		{ "label": "Bergstr.", "value": "3923" },
+		{ "label": "Zum Pfiff", "value": "4411" }
 	  ]
 	},
-    { "name": "timerinterval", "type": "IntervalBox", "caption": "Stunden" }
+
   ],
   "actions":
   [
