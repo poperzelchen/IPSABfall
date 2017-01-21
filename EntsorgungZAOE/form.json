@@ -1,9 +1,9 @@
 {
   "elements":
   [
-	{ "name": "country", "type": "Select", "caption": "Land",
+	{ "name": "region", "type": "Select", "caption": "Region",
 	  "options": [
-		{ "label": "Deutschland", "value": "D" },
+		{ "label": "Meißem", "value": "1" },
 		{ "label": "Österreich", "value": "AT" }
 	  ]
 	},
