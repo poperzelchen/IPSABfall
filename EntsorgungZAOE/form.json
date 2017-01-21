@@ -3,8 +3,10 @@
   [
 	{ "name": "region", "type": "Select", "caption": "Region",
 	  "options": [
-		{ "label": "Meißem", "value": "1" },
-		{ "label": "Österreich", "value": "AT" }
+		{ "label": "Meißen", "value": "1" },
+		{ "label": "Riesa-Großenhain", "value": "2" },
+		{ "label": "Sächsische Schweiz", "value": "3" },
+		{ "label": "Weißeritzkreis", "value": "4" }
 	  ]
 	},
 	{ "name": "area", "type": "Select", "caption": "Bundesland DE",
