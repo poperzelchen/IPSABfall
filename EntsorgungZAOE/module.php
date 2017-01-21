@@ -19,10 +19,10 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			$this->RegisterVariableInteger("WasteTime", "Restmuell", "~UnixTimestamp");
-			$this->RegisterVariableInteger("BioTime", "Biotonne", "~UnixTimestamp");
-			$this->RegisterVariableInteger("RecycleTime", "Gelber Sack", "~UnixTimestamp");
-			$this->RegisterVariableInteger("PaperTime", "Papiertonne", "~UnixTimestamp");
+			$this->RegisterVariableInteger("WasteTime", "Restabfall 80-240l Tonne", "~UnixTimestamp");
+			$this->RegisterVariableInteger("BioTime", "Bioabfall 60-240l Tonne", "~UnixTimestamp");
+			$this->RegisterVariableInteger("RecycleTime", "Gelbe Säcke/Gelbe Tonne", "~UnixTimestamp");
+			$this->RegisterVariableInteger("PaperTime", "Papier/Pappe 120/240l Tonne", "~UnixTimestamp");
 
 		}
 	
