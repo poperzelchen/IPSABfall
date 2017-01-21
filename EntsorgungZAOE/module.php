@@ -9,8 +9,8 @@
 			parent::Create();
 			
 			$this->RegisterPropertyString("region", "4");
-			$this->RegisterPropertyString("area", "Wilsdruff");
-			$this->RegisterPropertyString("ort", "OT Grumbach");
+			$this->RegisterPropertyString("area", "789");
+			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "Zum Pfiff");
 		}		
 	
