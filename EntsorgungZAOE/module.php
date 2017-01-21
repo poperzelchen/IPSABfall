@@ -1,6 +1,6 @@
 <?
 
-	class EntsorgungZAOE extends IPSModule
+	class Abfallkalender extends IPSModule
 	{
 
 		public function Create()
