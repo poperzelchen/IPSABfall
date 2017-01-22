@@ -20,10 +20,10 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			$this->RegisterVariableInteger("WasteTime", "Restabfall 80-240l Tonne", "~UnixTimestamp");
-			$this->RegisterVariableInteger("BioTime", "Bioabfall 60-240l Tonne", "~UnixTimestamp");
-			$this->RegisterVariableInteger("RecycleTime", "Gelbe Säcke/Gelbe Tonne", "~UnixTimestamp");
-			$this->RegisterVariableInteger("PaperTime", "Papier/Pappe 120/240l Tonne", "~UnixTimestamp");
+			$this->RegisterVariableString("WasteTime", "Restabfall 80-240l Tonne");
+			$this->RegisterVariableString("BioTime", "Bioabfall 60-240l Tonne");
+			$this->RegisterVariableString("RecycleTime", "Gelbe Säcke/Gelbe Tonne");
+			$this->RegisterVariableString("PaperTime", "Papier/Pappe 120/240l Tonne");
 
 		}
 	
@@ -38,7 +38,7 @@
 		    public function Update()
     {
                     
-            $this->SetValueInteger("WasteTime", date);
+            $this->SetValueString("WasteTime", "test");
        
         return true;
     }
