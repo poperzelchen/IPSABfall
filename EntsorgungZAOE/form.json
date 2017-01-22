@@ -63,11 +63,7 @@
 		{ "label": "Zum Pfiff", "value": "4411" }
 	  ]
 	},
-{
-                    "name": "url",
-                    "type": "ValidationTextBox",
-                    "caption": "URL"
-                }
+
   ],
    "actions":
   [
