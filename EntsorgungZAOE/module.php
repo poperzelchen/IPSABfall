@@ -40,7 +40,7 @@
                     
             $this->SetValueString("WasteTime", "test");
        
-        return true;
+        
     }
 		
 		
