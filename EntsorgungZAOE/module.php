@@ -21,6 +21,7 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
+			$this->RegisterVariableString("tonne", "tonne");
 			$this->RegisterVariableString("WasteTime", "Restabfall 80-240l Tonne");
 			$this->RegisterVariableString("BioTime", "Bioabfall 60-240l Tonne");
 			$this->RegisterVariableString("RecycleTime", "Gelbe Säcke/Gelbe Tonne");
