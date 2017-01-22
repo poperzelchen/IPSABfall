@@ -38,7 +38,7 @@
 		    public function Update()
     {
                     
-            $this->SetValueinteger("WasteTime", date("Ymd"));
+            $this->SetValueInteger("WasteTime", date);
        
         return true;
     }
