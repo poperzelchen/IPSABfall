@@ -12,7 +12,7 @@
 			$this->RegisterPropertyString("area", "789");
 			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "4411");
-			$this->RegisterTimer("UpdateMülltonne", 15 * 60 * 1000, 'Muell_Update($_IPS[\'TARGET\']);'); 
+			$this->RegisterTimer("Updatetonne", 15 * 60 * 1000, 'Tonne_Update(\$_IPS[\'TARGET\']);'); 
 		}		
 	
 		public function ApplyChanges()
