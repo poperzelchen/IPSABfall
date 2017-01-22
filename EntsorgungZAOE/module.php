@@ -49,7 +49,7 @@
         }
 
              
-            $this->SetValueBoolean("WasteTime", date("Ymd"));
+            $this->SetValueinteger("WasteTime", date("Ymd"));
        
         return true;
     }
