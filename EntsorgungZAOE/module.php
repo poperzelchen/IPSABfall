@@ -39,8 +39,9 @@
     {
                     
             $this->SetValueString("WasteTime", "test");
-       
-        
+			$this->SetValueString("BioTime", "test1");
+			$this->SetValueString("RecycleTime", "test2");
+			$this->SetValueString("PaperTime", "test3");
     }
 		private function SetValueString(string $Ident, string $value)
     {
