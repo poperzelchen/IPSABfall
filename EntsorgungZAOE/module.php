@@ -42,7 +42,11 @@
        
         
     }
-		
+		private function SetValueString(string $Ident, string $value)
+    {
+        $id = $this->GetIDForIdent($Ident);
+        SetValueString($id, $value);
+    }
 		
 		
 	}
