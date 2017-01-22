@@ -37,13 +37,16 @@
 		
 		    public function Update()
     {
-                    
-            $this->SetValueString("WasteTime", "test");
+            $jahr = date("Y") - 1;        
+            $this->SetValueString("WasteTime", $jahr);
 			$this->SetValueString("BioTime", "test1");
 			$this->SetValueString("RecycleTime", "test2");
 			$this->SetValueString("PaperTime", "test3");
     }
-		private function SetValueString(string $Ident, string $value)
+	
+	
+
+	private function SetValueString(string $Ident, string $value)
     {
         $id = $this->GetIDForIdent($Ident);
         SetValueString($id, $value);
