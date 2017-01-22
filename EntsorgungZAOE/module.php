@@ -75,8 +75,9 @@ $this->SetValueString("tonne", $link);
         }
 	$this->SetValueString("tonne", $tonne);
 		return $tonne;
+		*/
     }
-	*/
+	
 	private function SetValueString(string $Ident, string $value)
     {
         $id = $this->GetIDForIdent($Ident);
