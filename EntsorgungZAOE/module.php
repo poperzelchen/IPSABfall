@@ -37,18 +37,7 @@
 		
 		    public function Update()
     {
-        try
-        {
-            
-        }
-        catch (Exception $exc)
-        {
-            trigger_error($exc->getMessage(), $exc->getCode());
-            $this->SendDebug('ERROR', $exc->getMessage(), 0);
-            return false;
-        }
-
-             
+                    
             $this->SetValueinteger("WasteTime", date("Ymd"));
        
         return true;
