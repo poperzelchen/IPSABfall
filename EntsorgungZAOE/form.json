@@ -65,5 +65,8 @@
 	},
 
   ],
- 
+   "actions":
+  [
+	{ "type": "Button", "label": "Update", "onClick": "ZAOE_Update($id);" }
+  ]
 }

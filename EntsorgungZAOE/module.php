@@ -12,6 +12,7 @@
 			$this->RegisterPropertyString("area", "789");
 			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "4411");
+			$this->RegisterTimer("UpdateMülltonne", 15 * 60 * 1000, 'Muell_Update($_IPS[\'TARGET\']);'); 
 		}		
 	
 		public function ApplyChanges()
@@ -33,6 +34,35 @@
 		* EZVO_RequestInfo($id);
 		*
 		*/
+		
+		    public function Update()
+    {
+        try
+        {
+            $holiday = $this->GetFeiertag();
+        }
+        catch (Exception $exc)
+        {
+            trigger_error($exc->getMessage(), $exc->getCode());
+            $this->SendDebug('ERROR', $exc->getMessage(), 0);
+            return false;
+        }
+
+
+        $this->SetValueString("SchoolHoliday", $holiday);
+        if ($holiday == "Keine Ferien")
+        {
+            $this->SetValueBoolean("IsSchoolHoliday", false);
+        }
+        else
+        {
+            $this->SetValueBoolean("IsSchoolHoliday", true);
+        }
+        return true;
+    }
+		
+		
+		
 		public function RequestInfo()
 		{
 		
