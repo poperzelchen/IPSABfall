@@ -12,7 +12,7 @@
 			$this->RegisterPropertyString("area", "789");
 			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "4411");
-			$this->RegisterTimer("Updatetonne", 15 * 60 * 1000, 'ZAOE_Update(\$_IPS[\'TARGET\']);'); 
+			$this->RegisterTimer("Updatetonne", 15 * 60 * 1000, 'ZAOE_Update($_IPS[\'TARGET\']);'); 
 		}		
 	
 		public function ApplyChanges()
@@ -122,7 +122,7 @@
                 $jetzt = date("Ymd") . "\n";
                 if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
                 {
-					$tonnedate = date("d.m.Y", strtotime($start)) . " - Bioabfall";
+					$tonnedate = date("d.m.Y", strtotime($start));
                 }
 				if (($jetzt +1 == $start) || ($jetzt == $start))
                 {
@@ -182,7 +182,7 @@
                 $jetzt = date("Ymd") . "\n";
                  if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
                 {
-					$tonnedate = date("d.m.Y", strtotime($start)) . " - Papier/Pappe";
+					$tonnedate = date("d.m.Y", strtotime($start));
                 }
 				if (($jetzt +1 == $start) || ($jetzt == $start))
                 {
@@ -244,7 +244,7 @@
                 $jetzt = date("Ymd") . "\n";
                  if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
                 {
-					$tonnedate = date("d.m.Y", strtotime($start)) . " - Restabfall";
+					$tonnedate = date("d.m.Y", strtotime($start));
                 }
 				if (($jetzt +1 == $start) || ($jetzt == $start))
                 {
@@ -301,7 +301,7 @@
                 $jetzt = date("Ymd") . "\n";
                  if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
                 {
-					$tonnedate = date("d.m.Y", strtotime($start)) . " - Gelber Sack";
+					$tonnedate = date("d.m.Y", strtotime($start));
                 }
 				if (($jetzt +1 == $start) || ($jetzt == $start))
                 {
