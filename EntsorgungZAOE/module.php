@@ -124,9 +124,14 @@
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
-				if (($jetzt +1 == $start) || ($jetzt == $start))
+				if (($jetzt +1 == $start))
                 {
-					$tonne = explode(' ', $name) [0];
+					$tonne = "Morgen " . explode(' ', $name) [0];
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+				elseif ($jetzt == $start)
+				{
+					$tonne = "Heute " . explode(' ', $name) [0];
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
             }
@@ -184,9 +189,14 @@
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
-				if (($jetzt +1 == $start) || ($jetzt == $start))
+				if (($jetzt +1 == $start))
                 {
-					$tonne = explode(' ', $name) [0];
+					$tonne = "Morgen " . explode(' ', $name) [0];
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+				elseif ($jetzt == $start)
+				{
+					$tonne = "Heute " . explode(' ', $name) [0];
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
             }
@@ -246,9 +256,14 @@
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
-				if (($jetzt +1 == $start) || ($jetzt == $start))
+				if (($jetzt +1 == $start))
                 {
-					$tonne = explode(' ', $name) [0];
+					$tonne = "Morgen " . explode(' ', $name) [0];
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+				elseif ($jetzt == $start)
+				{
+					$tonne = "Heute " . explode(' ', $name) [0];
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
             }
@@ -303,9 +318,14 @@
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
-				if (($jetzt +1 == $start) || ($jetzt == $start))
+				if (($jetzt +1 == $start))
                 {
-					$tonne = explode(' ', $name) [0];
+					$tonne = "Morgen " . explode(' ', $name) [0];
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+				elseif ($jetzt == $start)
+				{
+					$tonne = "Heute " . explode(' ', $name) [0];
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
             }
