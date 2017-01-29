@@ -9,6 +9,7 @@
 		{ "label": "Weißeritzkreis", "value": "4" }
 	  ]
 	},
+	
 	{ "name": "area", "type": "Select", "caption": "Gemeinde / Stadt",
 	  "options": [
 		{ "label": "Altenberg", "value": "18" },

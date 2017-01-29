@@ -320,12 +320,12 @@
                 }
 				if (($jetzt +1 == $start))
                 {
-					$tonne = "Morgen " . explode(' ', $name) [0];
+					$tonne = "Morgen Gelbe Tonne";
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
 				elseif ($jetzt == $start)
 				{
-					$tonne = "Heute " . explode(' ', $name) [0];
+					$tonne = "Heute Gelbe Tonne";
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
             }
