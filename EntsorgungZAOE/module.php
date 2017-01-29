@@ -57,7 +57,8 @@
             return false;
         }
 
-		$Tonnealle = trim($TonneB ." ". $TonneP ." ". $TonneG ." ". $TonneR , " ");
+		$Tonnealle = trim($TonneB .", ". $TonneP .", ". $TonneG .", ". $TonneR , ", ");
+		var_dump($Tonnealle);
 		$Tonne = str_replace("Keine Tonne", "", $Tonnealle);
         		
 		$this->SetValueString("BioTime", $AbholungB);
