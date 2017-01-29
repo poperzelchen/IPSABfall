@@ -57,9 +57,10 @@
             return false;
         }
 
-		$Tonnealle = trim($TonneB ." ". $TonneP ." ". $TonneG ." ". $TonneR );
+		$Tonnealle = $TonneB ." ". $TonneP ." ". $TonneG ." ". $TonneR ;
 		$Tonne = str_replace("Keine Tonne", "", $Tonnealle);
-        		
+        $Tonne = trim($Tonne);
+		
 		$this->SetValueString("BioTime", $AbholungB);
 		$this->SetValueString("PaperTime", $AbholungP);
 		$this->SetValueString("RecycleTime", $AbholungG);
