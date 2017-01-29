@@ -57,7 +57,7 @@
             return false;
         }
 
-		$Tonnealle = trim($TonneB ." ". $TonneP ." ". $TonneG ." ". $TonneR , " \t.");
+		$Tonnealle = trim($TonneB ." ". $TonneP ." ". $TonneG ." ". $TonneR );
 		var_dump($Tonnealle);
 		$Tonne = str_replace("Keine Tonne", "", $Tonnealle);
         		
