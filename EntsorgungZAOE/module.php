@@ -65,7 +65,7 @@
 		$this->SetValueString("PaperTime", $AbholungP);
 		$this->SetValueString("RecycleTime", $AbholungG);
 		$this->SetValueString("WasteTime", $AbholungR);
-		if ($Tonne == "   ")
+		if ($Tonne == "")
         {
             $this->SetValueBoolean("IsAbholung", false);
 			$this->SetValueString("tonne", "Keine Abholung");
