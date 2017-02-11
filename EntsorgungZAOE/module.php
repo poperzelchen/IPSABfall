@@ -128,7 +128,7 @@
 				$jetzt5 = time() + 432000;
 				$jetzt6 = time() + 518400;				
 				$jetzt7 = time() + 604800;
-				$tonnedate = $jetzt7
+				$tonnedate = $jetzt7 ;
 				
 				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 { /*
