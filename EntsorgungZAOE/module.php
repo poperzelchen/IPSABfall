@@ -121,13 +121,13 @@
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
                 $jetzt = date("Ymd") . "\n";
-				$jetzt1 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-1);
-				$jetzt2 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-2);
-				$jetzt3 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-3);
-				$jetzt4 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-4);
-				$jetzt5 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-5);
-				$jetzt6 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-6);
-				$jetzt7 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-7);
+				$jetzt1 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-1) . "\n";
+				$jetzt2 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-2) . "\n";
+				$jetzt3 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-3) . "\n";
+				$jetzt4 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-4) . "\n";
+				$jetzt5 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-5) . "\n";
+				$jetzt6 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-6) . "\n";
+				$jetzt7 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")-7) . "\n";
                 if ((date("Ymd", $jetzt7) == $start) || (date("Ymd", $jetzt6) == $start) || (date("Ymd", $jetzt5) == $start) || (date("Ymd", $jetzt4) == $start) || (date("Ymd", $jetzt3) == $start) || (date("Ymd", $jetzt2) == $start) || (date("Ymd", $jetzt1) == $start) || ($jetzt == $start) )
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
