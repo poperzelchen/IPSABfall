@@ -128,10 +128,13 @@
 				$jetzt5 = time() + 432000;
 				$jetzt6 = time() + 518400;				
 				$jetzt7 = time() + 604800;
+				$tonnedate = $jetzt7
+				
 				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
-                {
+                { /*
 					$tonnedate = date("d.m.Y", strtotime($start));
-              	}
+              	*/
+				}
 				if (($jetzt +1 == $start))
                 {
 					$tonne = "Morgen " . explode(' ', $name) [0];
