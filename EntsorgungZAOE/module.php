@@ -128,7 +128,8 @@
 				$jetzt5 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")+5);
 				$jetzt6 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")+6);
 				$jetzt7 = mktime(0, 0, 0, date("m"),  date("d")+7, date("Y"));
-                $tonnedate = date("Ymd", $jetzt7);
+                $jetzt8 = mktime();
+				$tonnedate = date("Ymd", $jetzt8);
 				if ((date("Ymd", $jetzt7) == $start) || (date("Ymd", $jetzt6) == $start) || (date("Ymd", $jetzt5) == $start) || (date("Ymd", $jetzt4) == $start) || (date("Ymd", $jetzt3) == $start) || (date("Ymd", $jetzt2) == $start) || (date("Ymd", $jetzt1) == $start) || ($jetzt == $start) )
                 {
 					
