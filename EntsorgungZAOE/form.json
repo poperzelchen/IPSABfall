@@ -26,8 +26,7 @@
 		{ "label": "Tharandt", "value": "739" },
 		{ "label": "Wilsdruff", "value": "789" }
 	  ]
-	}
-	:
+	},
 	
 	{ "name": "ort", "type": "Select", "caption": "Ort / Ortsteil (optional)",
 	  "options": [
