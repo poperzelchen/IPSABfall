@@ -128,10 +128,14 @@
 				$jetzt5 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")+5);
 				$jetzt6 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")+6);
 				$jetzt7 = mktime(0, 0, 0, date("Y"),  date("m"), date("d")+7);
-                if ((date("Ymd", $jetzt7) == $start) || (date("Ymd", $jetzt6) == $start) || (date("Ymd", $jetzt5) == $start) || (date("Ymd", $jetzt4) == $start) || (date("Ymd", $jetzt3) == $start) || (date("Ymd", $jetzt2) == $start) || (date("Ymd", $jetzt1) == $start) || ($jetzt == $start) )
+                $tonnedate = date("Ymd", $jetzt7);
+				if ((date("Ymd", $jetzt7) == $start) || (date("Ymd", $jetzt6) == $start) || (date("Ymd", $jetzt5) == $start) || (date("Ymd", $jetzt4) == $start) || (date("Ymd", $jetzt3) == $start) || (date("Ymd", $jetzt2) == $start) || (date("Ymd", $jetzt1) == $start) || ($jetzt == $start) )
                 {
+					
+					/*
 					$tonnedate = date("d.m.Y", strtotime($start));
-                }
+                */
+				}
 				if (($jetzt +1 == $start))
                 {
 					$tonne = "Morgen " . explode(' ', $name) [0];
