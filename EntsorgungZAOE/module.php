@@ -128,14 +128,10 @@
 				$jetzt5 = time() + 432000;
 				$jetzt6 = time() + 518400;				
 				$jetzt7 = time() + 604800;
-				$tonnedate = date("Ymd", $jetzt7);
-				if ((date("Ymd", $jetzt7) == $start) || (date("Ymd", $jetzt6) == $start) || (date("Ymd", $jetzt5) == $start) || (date("Ymd", $jetzt4) == $start) || (date("Ymd", $jetzt3) == $start) || (date("Ymd", $jetzt2) == $start) || (date("Ymd", $jetzt1) == $start) || ($jetzt == $start) )
+				if ($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 {
-					
-					/*
 					$tonnedate = date("d.m.Y", strtotime($start));
-                */
-				}
+              	}
 				if (($jetzt +1 == $start))
                 {
 					$tonne = "Morgen " . explode(' ', $name) [0];
@@ -196,8 +192,15 @@
                 $this->SendDebug('SUMMARY', $name, 0);
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd") . "\n";
-                 if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
+                 $jetzt = date("Ymd") . "\n";
+				$jetzt1 = time() + 86400;
+				$jetzt2 = time() + 172800;
+				$jetzt3 = time() + 259200;
+				$jetzt4 = time() + 345600;
+				$jetzt5 = time() + 432000;
+				$jetzt6 = time() + 518400;				
+				$jetzt7 = time() + 604800;
+				if ($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
@@ -264,7 +267,14 @@
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
                 $jetzt = date("Ymd") . "\n";
-                 if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
+				$jetzt1 = time() + 86400;
+				$jetzt2 = time() + 172800;
+				$jetzt3 = time() + 259200;
+				$jetzt4 = time() + 345600;
+				$jetzt5 = time() + 432000;
+				$jetzt6 = time() + 518400;				
+				$jetzt7 = time() + 604800;
+				if ($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
@@ -326,8 +336,15 @@
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
                 $jetzt = date("Ymd") . "\n";
-                 if (($jetzt +7 == $start) || ($jetzt +6 == $start) || ($jetzt +5 == $start) || ($jetzt +4 == $start) || ($jetzt +3 == $start) || ($jetzt +2 == $start) || ($jetzt +1 == $start) || ($jetzt == $start) )
-                {
+				$jetzt1 = time() + 86400;
+				$jetzt2 = time() + 172800;
+				$jetzt3 = time() + 259200;
+				$jetzt4 = time() + 345600;
+				$jetzt5 = time() + 432000;
+				$jetzt6 = time() + 518400;				
+				$jetzt7 = time() + 604800;
+				if ($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
 				if (($jetzt +1 == $start))
