@@ -109,15 +109,15 @@
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
 		
-		$anzahl = (count($meldung) - 1);
+		$anzahl = (count($meldung2) - 1);
 
         for ($count = 0; $count < $anzahl; $count++)
         {
-            if (strstr($meldung[$count], "SUMMARY:Bioabfall"))
+            if (strstr($meldung2[$count], "SUMMARY:Bioabfall"))
             {
-                $name = trim(substr($meldung[$count], 8));
-                $start = trim(substr($meldung[$count + 1], 19));
-                $ende = trim(substr($meldung[$count + 2], 17));
+                $name = trim(substr($meldung2[$count], 8));
+                $start = trim(substr($meldung2[$count + 1], 19));
+                $ende = trim(substr($meldung2[$count + 2], 17));
                 $this->SendDebug('SUMMARY', $name, 0);
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
