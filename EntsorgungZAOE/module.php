@@ -96,8 +96,9 @@
             $meldung = array();
         }       
                $jahr = date("Y");
- 
-		$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+ 		
+				$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+		
 		$this->SendDebug('GET', $link, 0);
         $meldung2 = @file($link);
         if ($meldung2 === false)
@@ -108,7 +109,7 @@
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
 		
-		$anzahl = (count($meldung) );
+		$anzahl = (count($meldung) - 1);
 
         for ($count = 0; $count < $anzahl; $count++)
         {
@@ -128,7 +129,7 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 { 
 					$tonnedate = date("d.m.Y", strtotime($start));
 				}
