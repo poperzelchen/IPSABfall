@@ -113,7 +113,7 @@
 
         for ($count = 0; $count < $anzahl; $count++)
         {
-            if (strstr($meldung[$count], "SUMMARY:Bioabfall"))
+            if (strstr($meldung[$count], "SUMMARY:Bioabfall 60-240l Tonne"))
             {
                 $name = trim(substr($meldung[$count], 8));
                 $start = trim(substr($meldung[$count + 1], 19));
@@ -129,7 +129,7 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if ( ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 { 
 					$tonnedate = date("d.m.Y", strtotime($start));
 				}
