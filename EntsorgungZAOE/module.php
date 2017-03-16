@@ -111,7 +111,7 @@
 		
 		$anzahl = (count($meldung) - 1);
 
-        for ($count = 0)
+        for ($count = 0; $count <= $anzahl; $count++)
         {
             if (strstr($meldung[$count], "SUMMARY:Bioabfall"))
             {
