@@ -109,9 +109,9 @@
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
 		
-		$anzahl = (count($meldung) - 1);
+		$anzahl = (count($meldung) );
 
-        for ($count = 0; $count <= $anzahl; $count++)
+        for ($count = 0; $count < $anzahl; $count++)
         {
             if (strstr($meldung[$count], "SUMMARY:Bioabfall"))
             {
