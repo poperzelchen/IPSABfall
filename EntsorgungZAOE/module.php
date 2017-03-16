@@ -111,9 +111,9 @@
 		
 		$anzahl = (count($meldung) - 1);
 
-        for ($count = 0; $count < $anzahl; $count++)
+        for ($count = 0)
         {
-            if (strstr($meldung[$count], "SUMMARY:Bioabfall 60-240l Tonne"))
+            if (strstr($meldung[$count], "SUMMARY:Bioabfall"))
             {
                 $name = trim(substr($meldung[$count], 8));
                 $start = trim(substr($meldung[$count + 1], 19));
