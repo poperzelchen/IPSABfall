@@ -109,7 +109,7 @@
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
 		
-		$anzahl = (count($meldung) );
+		$anzahl = (count($meldung) - 1);
 
         for ($count = 0; $count < $anzahl; $count++)
         {
