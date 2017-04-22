@@ -252,8 +252,9 @@
             throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
         $this->SendDebug('LINES', count($meldung2), 0);
 		
-		$meldung = array_merge($meldung, $meldung2);
-		$tonne = "Keine Tonne";
+	//	$meldung = array_merge($meldung, $meldung2);
+	$meldung = $meldung2
+	$tonne = "Keine Tonne";
 		$tonnedate = "-";
 
 		
