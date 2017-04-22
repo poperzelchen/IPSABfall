@@ -275,7 +275,7 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				if (($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
