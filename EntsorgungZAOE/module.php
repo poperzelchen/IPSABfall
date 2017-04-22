@@ -121,7 +121,7 @@
                 $this->SendDebug('SUMMARY', $name, 0);
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd") . "\n";
+                $jetzt = date("Ymd",time()) ;
 				$jetzt1 = date("Ymd",time() + 86400);
 				$jetzt2 = date("Ymd",time() + 172800);
 				$jetzt3 = date("Ymd",time() + 259200);
@@ -193,7 +193,7 @@
                 $this->SendDebug('SUMMARY', $name, 0);
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
-                 $jetzt = date("Ymd") . "\n";
+                $jetzt = date("Ymd",time()) ;
 				$jetzt1 = date("Ymd",time() + 86400);
 				$jetzt2 = date("Ymd",time() + 172800);
 				$jetzt3 = date("Ymd",time() + 259200);
@@ -252,9 +252,8 @@
             throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
         $this->SendDebug('LINES', count($meldung2), 0);
 		
-	//	$meldung = array_merge($meldung, $meldung2);
-	$meldung = $meldung2
-	$tonne = "Keine Tonne";
+		$meldung = array_merge($meldung, $meldung2);
+		$tonne = "Keine Tonne";
 		$tonnedate = "-";
 
 		
@@ -263,7 +262,7 @@
         for ($count = 0; $count < $anzahl; $count++)
         {
             
-			if (strstr($meldung[$count], "SUMMARY:Restabfall"))
+			if (strstr($meldung[$count], "SUMMARY:Restabfall "))
             {
                 $name = trim(substr($meldung[$count], 8));
                 $start = trim(substr($meldung[$count + 1], 19));
@@ -271,7 +270,7 @@
                 $this->SendDebug('SUMMARY', $name, 0);
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd") . "\n";
+                $jetzt = date("Ymd",time()) ;
 				$jetzt1 = date("Ymd",time() + 86400);
 				$jetzt2 = date("Ymd",time() + 172800);
 				$jetzt3 = date("Ymd",time() + 259200);
@@ -279,8 +278,8 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
-                {
+				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
 				if (($jetzt +1 == $start))
@@ -340,7 +339,7 @@
                 $this->SendDebug('SUMMARY', $name, 0);
                 $this->SendDebug('START', $start, 0);
                 $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd") . "\n";
+                $jetzt = date("Ymd",time()) ;
 				$jetzt1 = date("Ymd",time() + 86400);
 				$jetzt2 = date("Ymd",time() + 172800);
 				$jetzt3 = date("Ymd",time() + 259200);
