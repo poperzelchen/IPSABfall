@@ -57,9 +57,32 @@
             return false;
         }
 
-		$Tonnealle = $TonneB .", ". $TonneP .", ". $TonneG .", ". $TonneR ;
-		$Tonne = str_replace("Keine Tonne", "", $Tonnealle);
-        $Tonne = trim($Tonne, ", ");
+$TonneB = str_replace("Keine Tonne", "", $TonneB);
+$TonneP = str_replace("Keine Tonne", "", $TonneP);
+$TonneG = str_replace("Keine Tonne", "", $TonneG);
+$TonneR = str_replace("Keine Tonne", "", $TonneR);
+
+$laengeB = strlen($TonneB);
+$laengeP = strlen($TonneP);
+$laengeG = strlen($TonneG);
+$laengeR = strlen($TonneR);
+
+$TonneArray = array();
+if ($laengeB != 0) {
+$TonneArray[] =$TonneB;
+}
+if ($laengeP != 0) {
+$TonneArray[] =$TonneP;
+}
+if ($laengeG != 0) {
+$TonneArray[] =$TonneG;
+}
+if ($laengeR != 0) {
+$TonneArray[] =$TonneR;
+}
+
+$Tonne = implode(", ", $TonneArray);
+
 		
 		$this->SetValueString("BioTime", $AbholungB);
 		$this->SetValueString("PaperTime", $AbholungP);
