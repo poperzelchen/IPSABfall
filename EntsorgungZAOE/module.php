@@ -257,7 +257,7 @@ $Tonne = implode(", ", $TonneArray);
  
 		if ((int)date("md") < 110)
         {
-    $jahr = date("Y") - 1;
+		$jahr = date("Y") - 1;
 		$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
 				
 			$this->SendDebug('GET', $link, 0);
@@ -269,7 +269,7 @@ $Tonne = implode(", ", $TonneArray);
         {
             $meldung = array();
         }       
-$jahr = date("Y");
+		$jahr = date("Y");
 		$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
 		
 		
@@ -289,7 +289,7 @@ $jahr = date("Y");
         for ($count = 0; $count < $anzahl; $count++)
         {
             
-			if (strstr($meldung[$count], "SUMMARY:Restabfall "))
+			if (strstr($meldung[$count], "SUMMARY:Restabfall"))
             {
                 $name = trim(substr($meldung[$count], 8));
                 $start = trim(substr($meldung[$count + 1], 19));
