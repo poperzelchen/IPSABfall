@@ -110,7 +110,7 @@ $Tonne = implode(", ", $TonneArray);
             $jahr = date("Y") - 1;
             
 			
-			$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
+			$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
 			$this->SendDebug('GET', $link, 0);
             $meldung = @file($link);
             if ($meldung === false)
@@ -123,7 +123,7 @@ $Tonne = implode(", ", $TonneArray);
                $jahr = date("Y");
  		
 				
-				$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
+				$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
 			
 		$this->SendDebug('GET', $link, 0);
         $meldung2 = @file($link);
