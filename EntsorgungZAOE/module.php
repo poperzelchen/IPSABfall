@@ -100,20 +100,22 @@ $Tonne = implode(", ", $TonneArray);
         }
         return true;
     }
+		$jahr1 = date("Y");
+		$link1 = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr1 . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr1 . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
+		$jahr2 = date("Y") - 1;
+		$link2 = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr2 . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr2 . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
+			
 		
-
 			   public function GetTonneB()
-    {
+    
+{
  
 		if ((int)date("md") < 110)
         {
             $jahr = date("Y") - 1;
-            $link = 'https://www.zaoe.de/ical/download/4411/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.2018&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.2018&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
-			
-		/*	$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
-		*/	
-			$this->SendDebug('GET', $link, 0);
-            $meldung = @file($link);
+       
+			$this->SendDebug('GET', $link1, 0);
+            $meldung = @file($link1);
             if ($meldung === false)
                 throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
             $this->SendDebug('LINES', count($meldung), 0);
@@ -121,13 +123,10 @@ $Tonne = implode(", ", $TonneArray);
         {
             $meldung = array();
         }       
-               $jahr = date("Y");
- 		
-				
-				$link = 'https://www.zaoe.de/ical/download/4411/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.2018&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.2018&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
-			
-		$this->SendDebug('GET', $link, 0);
-        $meldung2 = @file($link);
+               
+ 				
+		$this->SendDebug('GET', $link2, 0);
+        $meldung2 = @file($link2);
         if ($meldung2 === false)
             throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
         $this->SendDebug('LINES', count($meldung2), 0);
@@ -184,9 +183,11 @@ $Tonne = implode(", ", $TonneArray);
 		if ((int)date("md") < 110)
         {
             $jahr = date("Y") - 1;
-            $link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-			$this->SendDebug('GET', $link, 0);
-            $meldung = @file($link);
+
+    //        $link = 'http://www.zaoe.de/ical/download//16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+
+			$this->SendDebug('GET', $link1, 0);
+            $meldung = @file($link1);
             if ($meldung === false)
                 throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
             $this->SendDebug('LINES', count($meldung), 0);
@@ -196,9 +197,10 @@ $Tonne = implode(", ", $TonneArray);
         }       
                $jahr = date("Y");
  
-		$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-		$this->SendDebug('GET', $link, 0);
-        $meldung2 = @file($link);
+//		$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+	
+	$this->SendDebug('GET', $link2, 0);
+        $meldung2 = @file($link2);
         if ($meldung2 === false)
             throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
         $this->SendDebug('LINES', count($meldung2), 0);
@@ -257,11 +259,10 @@ $Tonne = implode(", ", $TonneArray);
 		if ((int)date("md") < 110)
         {
             $jahr = date("Y") - 1;
-            $link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-		//	$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr .'&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr .'&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-		
-			$this->SendDebug('GET', $link, 0);
-            $meldung = @file($link);
+     //       $link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+			
+			$this->SendDebug('GET', $link1, 0);
+            $meldung = @file($link1);
             if ($meldung === false)
                 throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
             $this->SendDebug('LINES', count($meldung), 0);
@@ -271,10 +272,9 @@ $Tonne = implode(", ", $TonneArray);
         }       
                $jahr = date("Y");
  
-	$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-	//	$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr .'&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr .'&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-		$this->SendDebug('GET', $link, 0);
-        $meldung2 = @file($link);
+//	$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+		$this->SendDebug('GET', $link2, 0);
+        $meldung2 = @file($link2);
         if ($meldung2 === false)
             throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
         $this->SendDebug('LINES', count($meldung2), 0);
@@ -330,9 +330,9 @@ $Tonne = implode(", ", $TonneArray);
 		if ((int)date("md") < 110)
         {
             $jahr = date("Y") - 1;
-            $link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-			$this->SendDebug('GET', $link, 0);
-            $meldung = @file($link);
+       //     $link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+			$this->SendDebug('GET', $link1, 0);
+            $meldung = @file($link1);
             if ($meldung === false)
                 throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
             $this->SendDebug('LINES', count($meldung), 0);
@@ -342,9 +342,9 @@ $Tonne = implode(", ", $TonneArray);
         }       
                $jahr = date("Y");
  
-		$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
-		$this->SendDebug('GET', $link, 0);
-        $meldung2 = @file($link);
+	//	$link = 'http://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/16/?tx_kalenderausgaben_pi3%5Bauswahl_start_us%5D='. $jahr . '-01-01&tx_kalenderausgaben_pi3%5Bauswahl_end_us%5D='. $jahr . '-12-31&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=16';
+		$this->SendDebug('GET', $link2, 0);
+        $meldung2 = @file($link2);
         if ($meldung2 === false)
             throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
         $this->SendDebug('LINES', count($meldung2), 0);
