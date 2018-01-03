@@ -67,6 +67,7 @@ $laengeP = strlen($TonneP);
 $laengeG = strlen($TonneG);
 $laengeR = strlen($TonneR);
 
+
 $TonneArray = array();
 if ($laengeB != 0) {
 $TonneArray[] =$TonneB;
@@ -80,7 +81,7 @@ $TonneArray[] =$TonneG;
 if ($laengeR != 0) {
 $TonneArray[] =$TonneR;
 }
-
+$this->SetValue("BioTime", "arsch")
 $Tonne = implode(", ", $TonneArray);
 
 		
