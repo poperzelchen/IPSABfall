@@ -81,7 +81,7 @@ $TonneArray[] =$TonneG;
 if ($laengeR != 0) {
 $TonneArray[] =$TonneR;
 }
-$this->SetValue("BioTime", "arsch")
+$this->SetValue("BioTime", "arsch");
 $Tonne = implode(", ", $TonneArray);
 
 		
