@@ -60,7 +60,7 @@
 $TonneB = str_replace("Keine Tonne", "", $TonneB);
 $TonneP = str_replace("Keine Tonne", "", $TonneP);
 $TonneG = str_replace("Keine Tonne", "", $TonneG);
-$TonneR = str_replace("Keine Tonne", "", $TonneR);
+$TonneR = str_replace("Keine Tonne", "", $TonneR) ;
 
 $laengeB = strlen($TonneB);
 $laengeP = strlen($TonneP);
