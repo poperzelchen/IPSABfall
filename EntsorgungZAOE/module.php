@@ -84,19 +84,19 @@ $TonneArray[] =$TonneR;
 $Tonne = implode(", ", $TonneArray);
 
 		
-		$this->SetValueString("BioTime", $AbholungB);
-		$this->SetValueString("PaperTime", $AbholungP);
-		$this->SetValueString("RecycleTime", $AbholungG);
-		$this->SetValueString("WasteTime", $AbholungR);
+		$this->SetValue("BioTime", $AbholungB);
+		$this->SetValue("PaperTime", $AbholungP);
+		$this->SetValue("RecycleTime", $AbholungG);
+		$this->SetValueS("WasteTime", $AbholungR);
 		if ($Tonne == "")
         {
-            $this->SetValueBoolean("IsAbholung", false);
-			$this->SetValueString("tonne", "Keine Abholung");
+            $this->SetValue("IsAbholung", false);
+			$this->SetValue("tonne", "Keine Abholung");
         }
         else
         {
-            $this->SetValueBoolean("IsAbholung", true);
-			$this->SetValueString("tonne", $Tonne);
+            $this->SetValue("IsAbholung", true);
+			$this->SetValue("tonne", $Tonne);
         }
         return true;
     }
