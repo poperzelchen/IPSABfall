@@ -68,8 +68,8 @@
 	{
         "name": "zeittakt",
         "type": "ValidationTextBox",
-        "caption": "Zeit in min",
-    },
+        "caption": "Update aller x min"
+    }
   ],
    "actions":
   [

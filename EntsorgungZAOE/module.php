@@ -34,8 +34,12 @@
 			$this->RegisterVariableString("BioTime", "Bioabfall 60-240l Tonne");
 			$this->RegisterVariableString("RecycleTime", "Gelbe Säcke/Gelbe Tonne");
 			$this->RegisterVariableString("PaperTime", "Papier/Pappe 120/240l Tonne");
-
+			$this->SetTimerInterval("Updatetonne", $this->ReadPropertyString("zeittakt") * 60000);
 			$this->Update();
+			
+			
+			
+			
 		}
 		/**
 		* This function will be available automatically after the module is imported with the module control.
