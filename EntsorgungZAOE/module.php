@@ -16,7 +16,10 @@
 			$this->RegisterPropertyString("area", "789");
 			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "4411");
-			$this->RegisterTimer("Updatetonne",15 * 60 * 1000,"ZAOE_Update(\$_IPS[\'TARGET\']);"); 
+			$this->RegisterTimer("Updatetonne",60000,'ZAOE_Update($_IPS[\'TARGET\']);'); 
+			$this->RegisterTimer("Update", 5000, "echo 'Hallo Welt';");
+			
+			
 		}		
 	
 		public function ApplyChanges()
@@ -30,8 +33,8 @@
 			$this->RegisterVariableString("BioTime", "Bioabfall 60-240l Tonne");
 			$this->RegisterVariableString("RecycleTime", "Gelbe Säcke/Gelbe Tonne");
 			$this->RegisterVariableString("PaperTime", "Papier/Pappe 120/240l Tonne");
-		
-		//	$this->Update();
+
+			$this->Update();
 		}
 		/**
 		* This function will be available automatically after the module is imported with the module control.
@@ -43,8 +46,8 @@
 	 
 		   public function Update()
 		{
-	
-		     try
+	    
+			try
         {
             $TonneB = $this->GetTonneB()[0];
 			$AbholungB = $this->GetTonneB()[1];
@@ -144,7 +147,7 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                 {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
@@ -262,7 +265,7 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                  {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
@@ -320,7 +323,7 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
                  {
 					$tonnedate = date("d.m.Y", strtotime($start));
                 }
