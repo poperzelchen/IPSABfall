@@ -65,7 +65,11 @@
 		{ "label": "Zum Pfiff", "value": "4411" }
 	  ]
 	},
-
+	{
+        "name": "timervalue",
+        "type": "ValidationTextBox",
+        "caption": "Zeit in min"
+    }
   ],
    "actions":
   [
