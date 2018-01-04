@@ -16,7 +16,7 @@
 			$this->RegisterPropertyString("area", "789");
 			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "4411");
-			$this->RegisterPropertyString("timevalue", "30");
+			$this->RegisterPropertyString("zeittakt", "30");
 			$this->RegisterTimer("Updatetonne",60000,'ZAOE_Update($_IPS[\'TARGET\']);'); 
 			
 			

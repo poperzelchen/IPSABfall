@@ -66,10 +66,10 @@
 	  ]
 	},
 	{
-        "name": "timervalue",
+        "name": "zeittakt",
         "type": "ValidationTextBox",
-        "caption": "Zeit in min"
-    }
+        "caption": "Zeit in min",
+    },
   ],
    "actions":
   [
