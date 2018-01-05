@@ -17,7 +17,7 @@
 			$this->RegisterPropertyString("ort", "916");
 			$this->RegisterPropertyString("strasse", "4411");
 			$this->RegisterPropertyString("zeittakt", "30");
-			$this->RegisterTimer("Updatetonne",60000,'ZAOE_Update($_IPS[\'TARGET\']);'); 
+			$this->RegisterTimer("Updatetonne",1800000,'ZAOE_Update($_IPS[\'TARGET\']);'); 
 			
 			
 			
@@ -130,8 +130,45 @@
 		
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
-
+		$jetzt = date("Ymd",time());
+		$searchstr		= 'DTSTART';
 		
+		foreach ($meldung as $line ) 
+			{ 
+				if((strpos($line, $searchstr) !== false))
+				{ 
+					$dateprobe[] = substr(strstr($line,":"),1);
+				}
+			} 
+			sort($dateprobe);
+
+			$result="0";
+			for($i=0;$i<count($dateprobe);$i++)
+				{
+				if($jetzt<=$dateprobe[$i])
+					{
+					$start=$dateprobe[$i];
+					break;
+					}    
+				}
+			
+			$start = trim($start, " \t\n\r\0\x0B");
+			
+			if ($jetzt +1 == $start)
+                {
+					$tonne = "Morgen Bioabfall";
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+			elseif ($jetzt == $start)
+				{
+					$tonne = "Heute Bioabfall";
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+			$tonnedate = date("d.m.Y", strtotime($start));
+	  
+		
+		
+		/*
 		$anzahl = (count($meldung) - 1);
 
         for ($count = 0; $count < $anzahl; $count++)
@@ -152,10 +189,8 @@
 				$jetzt5 = date("Ymd",time() + 432000);
 				$jetzt6 = date("Ymd",time() + 518400);				
 				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
-                {
-					$tonnedate = date("d.m.Y", strtotime($start));
-                }
+			//	if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
+				
 				if (($jetzt +1 == $start))
                 {
 					$tonne = "Morgen " . explode(' ', $name) [0];
@@ -166,11 +201,20 @@
 					$tonne = "Heute " . explode(' ', $name) [0];
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
+			
+				if ($jetzt <= $start)
+				{
+					$tonnedate = date("d.m.Y", strtotime($start));
+					break;
+				}
+			
+
+				
             }
 			
         }
 	
-		
+		*/
 		return array($tonne,$tonnedate);
 		
     } 
@@ -191,45 +235,42 @@
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
 
+		$jetzt = date("Ymd",time());
+		$searchstr		= 'DTSTART';
 		
-		$anzahl = (count($meldung) - 1);
+		foreach ($meldung as $line ) 
+			{ 
+				if((strpos($line, $searchstr) !== false))
+				{ 
+					$dateprobe[] = substr(strstr($line,":"),1);
+				}
+			} 
+			sort($dateprobe);
 
-        for ($count = 0; $count < $anzahl; $count++)
-        {
-            if (strstr($meldung[$count], "SUMMARY:Papier"))
-            {
-                $name = trim(substr($meldung[$count], 8));
-                $start = trim(substr($meldung[$count + 1], 19));
-                $ende = trim(substr($meldung[$count + 2], 17));
-                $this->SendDebug('SUMMARY', $name, 0);
-                $this->SendDebug('START', $start, 0);
-                $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd",time()) ;
-				$jetzt1 = date("Ymd",time() + 86400);
-				$jetzt2 = date("Ymd",time() + 172800);
-				$jetzt3 = date("Ymd",time() + 259200);
-				$jetzt4 = date("Ymd",time() + 345600);
-				$jetzt5 = date("Ymd",time() + 432000);
-				$jetzt6 = date("Ymd",time() + 518400);				
-				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt7 == $start) || ($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
-                {
-					$tonnedate = date("d.m.Y", strtotime($start));
-                }
-				if (($jetzt +1 == $start))
-                {
-					$tonne = "Morgen " . explode(' ', $name) [0];
-					$this->SendDebug('FOUND', $tonne , 0);
-                }
-				elseif ($jetzt == $start)
+			$result="0";
+			for($i=0;$i<count($dateprobe);$i++)
 				{
-					$tonne = "Heute " . explode(' ', $name) [0];
+				if($jetzt<=$dateprobe[$i])
+					{
+					$start=$dateprobe[$i];
+					break;
+					}    
+				}
+			
+			$start = trim($start, " \t\n\r\0\x0B");
+			
+			if ($jetzt +1 == $start)
+                {
+					$tonne = "Morgen Papiertonne";
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
-            }
-			
-        }
-	
+			elseif ($jetzt == $start)
+				{
+					$tonne = "Heute Papiertonne";
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+			$tonnedate = date("d.m.Y", strtotime($start));
+		
 		
 		return array($tonne,$tonnedate);
 		
@@ -237,6 +278,7 @@
 	
 			   public function GetTonneG()
     {
+		
  
 		$jahr = substr(date("Y"),2);
 		//$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
@@ -249,31 +291,32 @@
 		
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
+		$jetzt = date("Ymd",time()) ;
 		
-		$anzahl = (count($meldung) - 1);
+		
+    
+		$searchstr		= 'DTSTART';
+		foreach ($meldung as $line ) 
+			{ 
+				if((strpos($line, $searchstr) !== false))
+				{ 
+					$dateprobe[] = substr(strstr($line,":"),1);
+				}
+			} 
+			sort($dateprobe);
 
-        for ($count = 0; $count < $anzahl; $count++)
-        {
-            if (strstr($meldung[$count], "SUMMARY:Gelbe"))
-            {
-                $name = trim(substr($meldung[$count], 8));
-                $start = trim(substr($meldung[$count + 1], 19));
-                $ende = trim(substr($meldung[$count + 2], 17));
-                $this->SendDebug('SUMMARY', $name, 0);
-                $this->SendDebug('START', $start, 0);
-                $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd",time()) ;
-				$jetzt1 = date("Ymd",time() + 86400);
-				$jetzt2 = date("Ymd",time() + 172800);
-				$jetzt3 = date("Ymd",time() + 259200);
-				$jetzt4 = date("Ymd",time() + 345600);
-				$jetzt5 = date("Ymd",time() + 432000);
-				$jetzt6 = date("Ymd",time() + 518400);				
-				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
-                 {
-					$tonnedate = date("d.m.Y", strtotime($start));
-                }
+			$result="0";
+			for($i=0;$i<count($dateprobe);$i++)
+				{
+				if($jetzt<=$dateprobe[$i])
+					{
+					$start=$dateprobe[$i];
+					break;
+					}    
+				}
+				
+				$tonnedate = date("d.m.Y", strtotime($start));
+				
 				if (($jetzt +1 == $start))
                 {
 					$tonne = "Morgen gelber Sack";
@@ -284,10 +327,8 @@
 					$tonne = "Heute gelber Sack";
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
-            }
-			
-        }
-	
+	  
+	  
 		
 		return array($tonne,$tonnedate);
 		
@@ -308,44 +349,43 @@
 		
 		$tonne = "Keine Tonne";
 		$tonnedate = "-";
-		$anzahl = (count($meldung) - 1);
+		
+		$jetzt = date("Ymd",time());
+		$searchstr		= 'DTSTART';
+		
+		foreach ($meldung as $line ) 
+			{ 
+				if((strpos($line, $searchstr) !== false))
+				{ 
+					$dateprobe[] = substr(strstr($line,":"),1);
+				}
+			} 
+			sort($dateprobe);
 
-        for ($count = 0; $count < $anzahl; $count++)
-        {
-            if (strstr($meldung[$count], "SUMMARY:Restabfall"))
-            {
-                $name = trim(substr($meldung[$count], 8));
-                $start = trim(substr($meldung[$count + 1], 19));
-                $ende = trim(substr($meldung[$count + 2], 17));
-                $this->SendDebug('SUMMARY', $name, 0);
-                $this->SendDebug('START', $start, 0);
-                $this->SendDebug('END', $ende, 0);
-                $jetzt = date("Ymd",time()) ;
-				$jetzt1 = date("Ymd",time() + 86400);
-				$jetzt2 = date("Ymd",time() + 172800);
-				$jetzt3 = date("Ymd",time() + 259200);
-				$jetzt4 = date("Ymd",time() + 345600);
-				$jetzt5 = date("Ymd",time() + 432000);
-				$jetzt6 = date("Ymd",time() + 518400);				
-				$jetzt7 = date("Ymd",time() + 604800);
-				if (($jetzt6 == $start) || ($jetzt5 == $start) || ($jetzt4 == $start) || ($jetzt3 == $start) || ($jetzt2 == $start) || ($jetzt1 == $start) || ($jetzt == $start) )
-                 {
-					$tonnedate = date("d.m.Y", strtotime($start));
-                }
-				if (($jetzt +1 == $start))
-                {
-					$tonne = "Morgen  ". explode(' ', $name) [0];
-					$this->SendDebug('FOUND', $tonne , 0);
-                }
-				elseif ($jetzt == $start)
+			$result="0";
+			for($i=0;$i<count($dateprobe);$i++)
 				{
-					$tonne = "Heute " . explode(' ', $name) [0];
+				if($jetzt<=$dateprobe[$i])
+					{
+					$start=$dateprobe[$i];
+					break;
+					}    
+				}
+			
+			$start = trim($start, " \t\n\r\0\x0B");
+			
+			if ($jetzt +1 == $start)
+                {
+					$tonne = "Morgen Restabfall";
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
-            }
-			
-        }
-	
+			elseif ($jetzt == $start)
+				{
+					$tonne = "Heute Restabfall";
+					$this->SendDebug('FOUND', $tonne , 0);
+                }
+			$tonnedate = date("d.m.Y", strtotime($start));
+		
 		
 		return array($tonne,$tonnedate);
 		
