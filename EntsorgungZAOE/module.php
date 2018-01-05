@@ -153,6 +153,7 @@
 				}
 			
 			$start = trim($start, " \t\n\r\0\x0B");
+				$this->SendDebug('FOUND', $start , 0);
 			
 			if ($jetzt +1 == $start)
                 {
@@ -258,7 +259,7 @@
 				}
 			
 			$start = trim($start, " \t\n\r\0\x0B");
-			
+			$this->SendDebug('FOUND', $start , 0);
 			if ($jetzt +1 == $start)
                 {
 					$tonne = "Morgen Papiertonne";
@@ -315,7 +316,10 @@
 					}    
 				}
 				
-				$tonnedate = date("d.m.Y", strtotime($start));
+				$start = trim($start, " \t\n\r\0\x0B");
+				$this->SendDebug('FOUND', $start , 0);
+				
+				
 				
 				if (($jetzt +1 == $start))
                 {
@@ -328,7 +332,8 @@
 					$this->SendDebug('FOUND', $tonne , 0);
                 }
 	  
-	  
+				$tonnedate = date("d.m.Y", strtotime($start));
+				
 		
 		return array($tonne,$tonnedate);
 		
@@ -373,6 +378,7 @@
 				}
 			
 			$start = trim($start, " \t\n\r\0\x0B");
+				$this->SendDebug('FOUND', $start , 0);
 			
 			if ($jetzt +1 == $start)
                 {
