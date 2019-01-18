@@ -52,8 +52,8 @@
 		   public function Update()
 		{
 	    
-			try
-        {
+	//		try
+    //    {
             $TonneB = $this->GetTonneB()[0];
 			$AbholungB = $this->GetTonneB()[1];
 			$TonneP = $this->GetTonneP()[0];
@@ -62,14 +62,14 @@
 			$AbholungG = $this->GetTonneG()[1];
 			$TonneR = $this->GetTonneR()[0];
 			$AbholungR = $this->GetTonneR()[1];
-		}
-        catch (Exception $exc)
-        {
-           trigger_error($exc->getMessage(), $exc->getCode());
-            $this->SendDebug('ERROR', $exc->getMessage(), 0);
-            return false;
+	//	}
+    //    catch (Exception $exc)
+    //    {
+    //       trigger_error($exc->getMessage(), $exc->getCode());
+    //        $this->SendDebug('ERROR', $exc->getMessage(), 0);
+    //        return false;
 		
-        }
+    //    }
 
 			$TonneB = str_replace("Keine Tonne", "", $TonneB);
 			$TonneP = str_replace("Keine Tonne", "", $TonneP);
@@ -123,7 +123,7 @@
         $jahr = substr(date("Y"),2);
 		//$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
 		$link = "https://www.zaoe.de/ical/" . $this->ReadPropertyString("strasse") . "/_3/" . $jahr ."/";
-		//$this->SendDebug('GET', $link, 0);
+		$this->SendDebug('GET', $link, 0);
         $meldung = @file($link);
         if ($meldung === false)
           throw new Exception("Cannot load iCal Data.", E_USER_NOTICE);
