@@ -65,9 +65,10 @@
 		}
         catch (Exception $exc)
         {
-            trigger_error($exc->getMessage(), $exc->getCode());
+           /* trigger_error($exc->getMessage(), $exc->getCode());
             $this->SendDebug('ERROR', $exc->getMessage(), 0);
             return false;
+			*/
         }
 
 			$TonneB = str_replace("Keine Tonne", "", $TonneB);
