@@ -344,7 +344,7 @@
 	
 			   public function GetTonneR()
     {
-		$jahr = substr(date("Y"),2);
+		$jahr = substr(date("Y"),2) + 1 ;
 		//$link = 'https://www.zaoe.de/ical/download/' . $this->ReadPropertyString("strasse") . '/18/?tx_kalenderausgaben_pi3%5Bauswahl_start%5D=01.01.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_end%5D=31.12.'. $jahr . '&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B0%5D=1&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B1%5D=3&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B2%5D=4&tx_kalenderausgaben_pi3%5Bauswahl_tonnen_ids%5D%5B3%5D=6&tx_kalenderausgaben_pi3%5Bswitch%5D=ical&tx_kalenderausgaben_pi3%5Bauswahl_zeitraum%5D=18';
 		$link = "https://www.zaoe.de/ical/" . $this->ReadPropertyString("strasse") . "/_1/" . $jahr  ."/";
 		$this->SendDebug('GET', $link, 0);
